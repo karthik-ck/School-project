@@ -1,0 +1,112 @@
+.login-container {
+  overflow: hidden;
+  padding: 18px;
+  font-family: "Rubik", sans-serif !important;
+}
+
+.login-left {
+  padding: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 20px #005eb633;
+  border-radius: 10px;
+  border: 1px solid #dceeff;
+  min-height: calc(100vh - 36px);
+  width: 660px;
+}
+
+.login-left img {
+  width: 100%;
+}
+
+.login-left-text {
+  background: #02284b;
+  color: rgb(255 255 255);
+  padding: 10px;
+  text-align: center;
+}
+
+.login-left-header {
+  text-transform: uppercase;
+  font-size:20px;
+  margin-top:-20px;
+  font-weight:400;
+  line-height: 21px;
+}
+
+.login-left-desc{
+    text-transform: uppercase;
+    font-size:15px;
+    margin:10px 0 20px 0;
+    font-weight:400;
+    line-height: 21px;
+}
+
+.login-right {
+  background-image: url(../Assets/Images/login-right-bg.png);
+  min-height: calc(100vh - 36px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  border: 1px solid rgb(220 238 255);
+  background: rgb(255 255 255);
+  box-shadow: 0px 0px 20px 0px rgba(0, 94, 182, 0.2);
+  padding: 66px 20px 40px 20px;
+  width: 400px;
+  margin: 30px 75px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-box::before {
+  content: "";
+  width: 92px;
+  height: 92px;
+  position: absolute;
+  background-color: rgb(240 240 240);
+  border-radius: 50%;
+  top: -20px;
+  right: -20px;
+}
+
+.login-title {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: rgb(44 44 44);
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.login-form input {
+  height: 60px;
+  border: 1px solid rgb(163 163 163);
+  color: rgb(33 33 33);
+  font-weight: 200;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login_button button {
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  background: rgb(0 43 83);
+  border: none;
+  width: 100%;
+  padding: 15px;
+  font-weight: 400;
+  border-radius: 4px;
+}
+
+.invalid-feesback{
+  color:#dc3545;
+  font-size:14px;
+}
+
+.login-form .form-group{
+  margin-bottom:20px;
+}
