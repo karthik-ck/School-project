@@ -116,7 +116,6 @@ function Home() {
                       linkClass="page-link"
                     />
                   </div>
-
                 </div>
               </div>
             </div>
