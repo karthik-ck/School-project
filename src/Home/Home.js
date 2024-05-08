@@ -7,7 +7,7 @@ import Pagination from 'react-js-pagination';
 function Home() {
   const { name, code, type, listSubjects, handleChange, saveSubject,
     submitted, edit, showupdate, cancel, updateSubject, deleteSubject, Search,
-    currentPage, totalPage, handlePageChange, totalDocs, pagingCounter, perPage
+    currentPage, handlePageChange, totalDocs, pagingCounter, perPage
   } = HomeHook()
 
   return (
