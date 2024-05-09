@@ -1,21 +1,21 @@
 import React from 'react'
-import './Customer.css'
 import Header from '../Header/Header'
+import PartiesHook from './PartiesHook'
+import './Parties.css'
 import { Link } from 'react-router-dom'
-import CustomerHook from './CustomerHook'
 import Pagination from 'react-js-pagination';
 
-function Customer() {
-    const { customerData, fetchData, nameClick, editCustomer,
-        currentPage, totalDocs, perPage, pagingCounter, handlePageChange } = CustomerHook()
+function Parties() {
+    const { partyData, fetchData, nameClick, editParty, deleteParty, handlePageChange,
+        currentPage, totalDocs, perPage, pagingCounter, } = PartiesHook()
     return (
         <div>
             <Header></Header>
             <div className='customer_container'>
                 <div className='settings_header'>
-                    <span className='settings_title'>Total Customers - {totalDocs}</span>
+                    <span className='settings_title'>Total Parties - {totalDocs}</span>
                     <div className='add_customer'>
-                        <button><Link to="/settings">Add Customer</Link></button>
+                        <button><Link to="/parties/add-parties">Add Party</Link></button>
                     </div>
                 </div>
                 <div className='customer_cont'>
@@ -25,21 +25,20 @@ function Customer() {
                                 <table className='table'>
                                     <thead>
                                         <tr>
-                                            <th>Customer</th>
-                                            <th>Amount</th>
+                                            <th>Party</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {customerData.map((list, index) => (
+                                        {partyData.map((list, index) => (
                                             <tr key={index}>
-                                                <td className={(fetchData?.customer_name === list.customer_name) ? 'name_active' : ''} onClick={() => nameClick(list)}>
-                                                    {list.customer_name}
+                                                <td className={(fetchData?.parties_name === list.parties_name) ? 'name_active' : ''}
+                                                    onClick={() => nameClick(list)}>
+                                                    {list.parties_name}
                                                 </td>
-                                                <td>{list.wallet_amount ? new Intl.NumberFormat('en-US', { style: 'currency', currency: 'INR' }).format(list.wallet_amount) : ''}</td>
                                                 <td className='action_buttons'>
-                                                    <button><Link to={`/settings?id=${list._id}`}>E</Link></button>
-                                                    <button>D</button>
+                                                    <button onClick={() => editParty(list._id)}>E</button>
+                                                    <button onClick={() => deleteParty(list._id)}>D</button>
                                                 </td>
                                             </tr>
                                         ))}
@@ -47,7 +46,7 @@ function Customer() {
                                 </table>
 
                                 {
-                                    customerData && !customerData.length &&
+                                    partyData && !partyData.length &&
                                     <div className='no_data'>No Data Found</div>
                                 }
 
@@ -71,8 +70,8 @@ function Customer() {
                             <div className='customer_right'>
                                 <div className='customer_details_top'>
                                     <div className='cust_header'>
-                                        <span>{fetchData?.customer_name}</span>
-                                        <button onClick={() => editCustomer(fetchData?._id)}>Edit Customer Detail</button>
+                                        <span>{fetchData?.parties_name}</span>
+                                        <button onClick={() => editParty(fetchData._id)}>Edit Party Detail</button>
                                     </div>
                                     <div className='cust_list'>
                                         <div className='row'>
@@ -105,4 +104,4 @@ function Customer() {
     )
 }
 
-export default Customer
+export default Parties

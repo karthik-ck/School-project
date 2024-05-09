@@ -1,6 +1,7 @@
 .header_container {
   background-color: #02284b;
   padding: 10px;
+  font-family: "Rubik", sans-serif !important;
 }
 
 .header-top {

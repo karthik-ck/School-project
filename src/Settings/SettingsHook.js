@@ -26,15 +26,6 @@ function SettingsHook() {
   const handleChange = (index, event) => {
     const { name, value } = event.target;
 
-    // if(name === 'email'){
-    //   const emailPattern = /^\S+@\S+\.\S+$/;
-    //   setEmailValidation(!emailPattern.test(value));
-    // }
-
-    // if (name === 'phone'){
-    //   setPhoneValidation(value.length < 10);
-    // }
-
     if (name === 'email') {
       const emailPattern = /^\S+@\S+\.\S+$/;
       const isEmailInvalid = !emailPattern.test(value);
@@ -165,6 +156,10 @@ function SettingsHook() {
     }
   }
 
+  const cancelbtn = () => {
+    navigate("/customer")
+  }
+
   return {
     formData,
     handleChange,
@@ -176,7 +171,8 @@ function SettingsHook() {
     numberOnly,
     phoneValidation,
     showUpdate,
-    updateForm
+    updateForm,
+    cancelbtn
   }
 }
 

@@ -5,7 +5,7 @@ import SettingsHook from './SettingsHook'
 
 function Settings() {
     const { formData, handleChange, addNewCustomer, removeCustomer, saveForm,
-        submitted, emailValidation, numberOnly, phoneValidation, showUpdate, updateForm } = SettingsHook()
+        submitted, emailValidation, numberOnly, phoneValidation, showUpdate, updateForm, cancelbtn } = SettingsHook()
 
     return (
         <div>
@@ -95,7 +95,7 @@ function Settings() {
                             </div>
                             :
                             <div className='save_button'>
-                                <button className='save_new_btn'>Cancel</button>
+                                <button className='save_new_btn' onClick={cancelbtn}>Cancel</button>
                                 <button className='save_btn' onClick={updateForm}>Update</button>
                             </div>
                     }

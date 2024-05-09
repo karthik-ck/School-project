@@ -23,6 +23,8 @@ function Header() {
                 <ul>
                     <li><Link to="/home">Subjects</Link></li>
                     <li><Link to="/customer">Settings</Link></li>
+                    <li><Link to="/parties">Parties</Link></li>
+                    <li><Link to="/exam">Exam</Link></li>
                 </ul>
             </div>
         </div>

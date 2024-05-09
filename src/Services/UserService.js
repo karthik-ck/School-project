@@ -42,6 +42,8 @@ export default class UserService {
         return result
     }
 
+    // Customers
+
     static addCustomer(customers) {
         const formData = {
             'customers': JSON.stringify(customers)
@@ -50,12 +52,12 @@ export default class UserService {
         return result;
     }
 
-    static getCustomers() {
-        const result = axios.get(`${REACT_APP_APIURL}user/customer/list`, { headers })
+    static getCustomers(page) {
+        const result = axios.get(`${REACT_APP_APIURL}user/customer/list?page=${page}`, { headers })
         return result;
     }
 
-    static getCustomerbyID(id){
+    static getCustomerbyID(id) {
         const result = axios.get(`${REACT_APP_APIURL}user/customer/byid/${id}`, { headers })
         return result;
     }
@@ -64,4 +66,61 @@ export default class UserService {
         const result = axios.put(`${REACT_APP_APIURL}user/customer/update/${id}`, formData, { headers })
         return result;
     }
+
+    // Parties
+
+    static getPartiesData(page) {
+        const result = axios.get(`${REACT_APP_APIURL}user/parties/list?page=${page}`, { headers })
+        return result
+    }
+
+    static addParties(parties) {
+        const formData = {
+            'parties': JSON.stringify(parties)
+        }
+        const result = axios.post(`${REACT_APP_APIURL}user/parties/add`, formData, { headers })
+        return result;
+    }
+
+    static getPartiesbyID(id) {
+        const result = axios.get(`${REACT_APP_APIURL}user/parties/byid/${id}`, { headers })
+        return result;
+    }
+
+    static updateParty(id, formData) {
+        const result = axios.put(`${REACT_APP_APIURL}user/parties/update/${id}`, formData, { headers })
+        return result;
+    }
+
+    static deleteParty(id) {
+        const result = axios.delete(`${REACT_APP_APIURL}user/parties/delete/${id}`, { headers })
+        return result;
+    }
+
+    // Exam
+    static getAcademicYearDropdown() {
+        const result = axios.get(`${REACT_APP_APIURL}student/academic-year/list-academic-year-dropdown`, { headers })
+        return result;
+    }
+
+    static getClassDropdown(id) {
+        const result = axios.get(`${REACT_APP_APIURL}student/class/dropdown/${id}`, { headers })
+        return result;
+    }
+
+    static getBranchDropdown(id) {
+        const result = axios.get(`${REACT_APP_APIURL}student/branch/list-branch-dropdown/${id}`, { headers })
+        return result;
+    }
+
+    static getTermDropdown(id) {
+        const result = axios.get(`${REACT_APP_APIURL}student/exam/term-class-exam?class_name=${id}`, { headers })
+        return result;
+    }
+
+    static getExamList(page, class_name, branch_name, term_name) {
+        const result = axios.get(`${REACT_APP_APIURL}student/exam/list-exam?page${page}&class_name=${class_name}&branch_name=${branch_name}&term_name=${term_name}`, { headers })
+        return result;
+    }
+
 }

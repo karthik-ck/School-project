@@ -1,0 +1,134 @@
+.exam_container {
+  padding: 10px;
+  font-family: "Rubik", sans-serif !important;
+}
+
+.exam_header {
+  background-color: rgb(255 255 255);
+  box-shadow: 0px 0px 20px 0px rgba(0, 94, 182, 0.2);
+  padding: 15px;
+}
+
+.exam_header_top ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.exam_header_top ul .active {
+  background: #3188d9;
+  border: 1px solid #eaeaea;
+  padding: 10px 20px;
+  border-radius: 2px;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 10px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.exam_header_top ul li {
+  background: transparent;
+  border: 1px solid #eaeaea;
+  padding: 10px 20px;
+  border-radius: 2px;
+  color: #000;
+  text-transform: uppercase;
+  margin-right: 10px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.add_exam button {
+  border: 1px solid #35c95e;
+  background-color: #007e23;
+  padding: 10px 20px;
+  border-radius: 2px;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 10px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.exam_header_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #c3c3c3;
+  padding-bottom: 20px;
+}
+
+.exam_header_bottom {
+  padding: 10px;
+}
+
+.exam_filter {
+  display: flex;
+  align-items: center;
+}
+
+.exam_select {
+  height: 40px;
+  padding: 10px 20px;
+  margin-left: 15px;
+  width: 170px !important;
+  font-size: 15px !important;
+}
+
+.filter_title {
+  text-transform: uppercase;
+  color: rgb(0 43 83);
+  margin-right: 10px;
+}
+
+.search_button {
+  margin-left: 20px;
+}
+
+.search_button button {
+  border: none;
+  border-radius: 3px;
+  width: 167px;
+  color: #fff;
+  text-align: center;
+  background: #002b53;
+  height: 40px;
+}
+
+.exam_table {
+  background-color: rgb(255 255 255);
+  box-shadow: 0px 0px 20px 0px rgba(0, 94, 182, 0.2);
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.table_title {
+  text-transform: uppercase;
+  color: rgb(0 43 83);
+  font-weight: 400;
+  margin-bottom:10px;
+}
+
+.exam_table .table thead tr th {
+  background-color: rgb(241 248 255);
+  color: rgb(0 43 83);
+  padding: 15px;
+  border: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.no_data{
+  font-size:14px;
+}
+
+.exam_table .table tbody tr td{
+  font-size:14px;
+  padding:15px;
+  border-bottom: 1px solid rgb(241 241 241);
+  color: rgb(46 46 46);
+  font-weight:400;
+}
