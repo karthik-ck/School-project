@@ -12,16 +12,16 @@ import CreateExam from './Exam/CreateExam/CreateExam';
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="" element={<Login />}></Route>
-        <Route path="home" element={<Home />}></Route>
-        <Route path="customer" element={<Customer />}></Route>
-        <Route path="settings" element={<Settings />}></Route>
-        <Route path="parties" element={<Parties />}></Route>
-        <Route path="parties/add-parties" element={<AddParties />}></Route>
-        <Route path="exam" element={<Exam />}></Route>
-        <Route path="exam/create-exam" element={<CreateExam />}></Route>
-      </Routes>
+        <Routes>
+          <Route path="" element={<Login />}></Route>
+          <Route path="home" element={<Home />}></Route>
+          <Route path="customer" element={<Customer />}></Route>
+          <Route path="settings" element={<Settings />}></Route>
+          <Route path="parties" element={<Parties />}></Route>
+          <Route path="parties/add-parties" element={<AddParties />}></Route>
+          <Route path="exam" element={<Exam />}></Route>
+          <Route path="exam/create-exam" element={<CreateExam />}></Route>
+        </Routes>
     </div>
   );
 }

@@ -1,0 +1,70 @@
+.assign_title {
+  text-transform: uppercase;
+  color: rgb(0 43 83);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.exam_form select,
+.exam_form input {
+  height: 50px;
+  color: rgb(33 33 33);
+  border: 1px solid rgb(223 223 223);
+  border-radius: 4px;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 10px 20px;
+}
+
+.input_container {
+  height: 50px;
+  color: rgb(33 33 33);
+  border: 1px solid rgb(223 223 223);
+  border-radius: 4px;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.radio_button label {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.radio_button input {
+  font-size: 18px;
+}
+
+.date_input {
+  height: 50px;
+  width: 50% !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.date_container {
+  height: 50px;
+  color: rgb(33 33 33);
+  border: 1px solid rgb(223 223 223);
+  border-radius: 4px;
+  font-weight: 300;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:10px 0 10px 0;
+}
+
+.date_container label {
+  padding: 14px 20px;
+  background-color: #eee;
+  height:50px;
+  width:51%;
+}
+
+.save_button{
+    margin-top:40px;
+}

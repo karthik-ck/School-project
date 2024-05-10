@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import AuthService from '../Services/AuthService'
 import { useNavigate } from 'react-router-dom'
+import setAuthToken from '../Auth/Auth'
 
 function LoginHook() {
   const navigate = useNavigate()
@@ -38,6 +39,7 @@ function LoginHook() {
           if (response.status === 200) {
             alert('Login successful', 'success');
             localStorage.setItem("token", response.data.data.access_token)
+            setAuthToken(response.data.data.access_token)
             navigate('home')
           } else {
             alert('Invalid Credentials', 'error');

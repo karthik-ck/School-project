@@ -1,19 +1,20 @@
-import axios from "axios";
+//import axios from "axios";
+import axiosInstance from "../AxiosInstance";
 
-const REACT_APP_APIURL = 'http://13.200.77.195:5002/api/v1/'
-const token = localStorage.getItem('token')
+// const REACT_APP_APIURL = 'http://13.200.77.195:5002/api/v1/'
+// const token = localStorage.getItem('token')
 
-const headers = {
-    'X-Db-Key': 'mk',
-}
+// const headers = {
+//     'X-Db-Key': 'mk',
+// }
 
-if (token) {
-    headers['Authorization'] = 'Bearer ' + token;
-}
+// if (token) {
+//     headers['Authorization'] = 'Bearer ' + token;
+// }
 
 export default class UserService {
     static getSubjects(search, page) {
-        const result = axios.get(`${REACT_APP_APIURL}student/subject/list-subject?search=${search}&page=${page}`, { headers })
+        const result = axiosInstance.get(`student/subject/list-subject?search=${search}&page=${page}`)
         return result;
     }
 
@@ -23,7 +24,7 @@ export default class UserService {
             'subject_code': subject_code,
             'subjectType': subjectType
         }
-        const result = axios.post(`${REACT_APP_APIURL}student/subject/add-subject`, formData, { headers })
+        const result = axiosInstance.post(`student/subject/add-subject`, formData)
         return result;
     }
 
@@ -33,12 +34,12 @@ export default class UserService {
             'subject_code': subject_code,
             'subjectType': subjectType
         }
-        const result = axios.put(`${REACT_APP_APIURL}student/subject/update-subject/${id}`, formData, { headers })
+        const result = axiosInstance.put(`student/subject/update-subject/${id}`, formData,)
         return result
     }
 
     static deleteSubject(id) {
-        const result = axios.delete(`${REACT_APP_APIURL}student/subject/delete-subject/${id}`, { headers })
+        const result = axiosInstance.delete(`student/subject/delete-subject/${id}`)
         return result
     }
 
@@ -48,29 +49,29 @@ export default class UserService {
         const formData = {
             'customers': JSON.stringify(customers)
         }
-        const result = axios.post(`${REACT_APP_APIURL}user/customer/add`, formData, { headers })
+        const result = axiosInstance.post(`user/customer/add`, formData)
         return result;
     }
 
     static getCustomers(page) {
-        const result = axios.get(`${REACT_APP_APIURL}user/customer/list?page=${page}`, { headers })
+        const result = axiosInstance.get(`user/customer/list?page=${page}`)
         return result;
     }
 
     static getCustomerbyID(id) {
-        const result = axios.get(`${REACT_APP_APIURL}user/customer/byid/${id}`, { headers })
+        const result = axiosInstance.get(`user/customer/byid/${id}`)
         return result;
     }
 
     static updateCustomer(id, formData) {
-        const result = axios.put(`${REACT_APP_APIURL}user/customer/update/${id}`, formData, { headers })
+        const result = axiosInstance.put(`user/customer/update/${id}`, formData)
         return result;
     }
 
     // Parties
 
     static getPartiesData(page) {
-        const result = axios.get(`${REACT_APP_APIURL}user/parties/list?page=${page}`, { headers })
+        const result = axiosInstance.get(`user/parties/list?page=${page}`)
         return result
     }
 
@@ -78,48 +79,48 @@ export default class UserService {
         const formData = {
             'parties': JSON.stringify(parties)
         }
-        const result = axios.post(`${REACT_APP_APIURL}user/parties/add`, formData, { headers })
+        const result = axiosInstance.post(`user/parties/add`, formData)
         return result;
     }
 
     static getPartiesbyID(id) {
-        const result = axios.get(`${REACT_APP_APIURL}user/parties/byid/${id}`, { headers })
+        const result = axiosInstance.get(`user/parties/byid/${id}`)
         return result;
     }
 
     static updateParty(id, formData) {
-        const result = axios.put(`${REACT_APP_APIURL}user/parties/update/${id}`, formData, { headers })
+        const result = axiosInstance.put(`user/parties/update/${id}`, formData)
         return result;
     }
 
     static deleteParty(id) {
-        const result = axios.delete(`${REACT_APP_APIURL}user/parties/delete/${id}`, { headers })
+        const result = axiosInstance.delete(`user/parties/delete/${id}`)
         return result;
     }
 
     // Exam
     static getAcademicYearDropdown() {
-        const result = axios.get(`${REACT_APP_APIURL}student/academic-year/list-academic-year-dropdown`, { headers })
+        const result = axiosInstance.get(`student/academic-year/list-academic-year-dropdown`)
         return result;
     }
 
     static getClassDropdown(id) {
-        const result = axios.get(`${REACT_APP_APIURL}student/class/dropdown/${id}`, { headers })
+        const result = axiosInstance.get(`student/class/dropdown/${id}`)
         return result;
     }
 
     static getBranchDropdown(id) {
-        const result = axios.get(`${REACT_APP_APIURL}student/branch/list-branch-dropdown/${id}`, { headers })
+        const result = axiosInstance.get(`student/branch/list-branch-dropdown/${id}`)
         return result;
     }
 
     static getTermDropdown(id) {
-        const result = axios.get(`${REACT_APP_APIURL}student/exam/term-class-exam?class_name=${id}`, { headers })
+        const result = axiosInstance.get(`student/exam/term-class-exam?class_name=${id}`)
         return result;
     }
 
     static getExamList(page, class_name, branch_name, term_name) {
-        const result = axios.get(`${REACT_APP_APIURL}student/exam/list-exam?page${page}&class_name=${class_name}&branch_name=${branch_name}&term_name=${term_name}`, { headers })
+        const result = axiosInstance.get(`student/exam/list-exam?page${page}&class_name=${class_name}&branch_name=${branch_name}&term_name=${term_name}`)
         return result;
     }
 
