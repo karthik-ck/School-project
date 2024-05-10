@@ -5,7 +5,10 @@ import CreateExamHook from './CreateExamHook'
 
 function CreateExam() {
     const { classdata, selectedClass, classHandler, branchdata, termdata,
-        selectedBranch, selectedTerm, branchHandler, termHandler } = CreateExamHook()
+        selectedBranch, selectedTerm, branchHandler, termHandler, saveExam ,
+        examname, examnameChange, annualReport, annualReportChange, status,
+        statusChange, startDate, endDate, startDateChange, endDateChange ,
+        deadlineDate, deadlineDateChange } = CreateExamHook()
 
     return (
         <div>
@@ -51,7 +54,7 @@ function CreateExam() {
                         </div>
                         <div className='col-sm-4'>
                             <div className='form-group exam_form'>
-                                <input type="text" className='form-control' placeholder='Exam Name' />
+                                <input type="text" className='form-control' placeholder='Exam Name' value={examname} onChange={examnameChange}/>
                             </div>
                         </div>
                     </div>
@@ -60,9 +63,9 @@ function CreateExam() {
                             <div className='input_container'>
                                 <label>Included in Annaul Report</label>
                                 <div className='radio_button'>
-                                    <input type="radio" id="yes" name="annual_report" />
+                                    <input type="radio" id="yes" name="annual_report" value={annualReport} onChange={()=>annualReportChange(true)}/>
                                     <label htmlFor="yes">Yes</label>
-                                    <input type="radio" id="no" name="annual_report" />
+                                    <input type="radio" id="no" name="annual_report" value={annualReport} onChange={() => annualReportChange(false)} />
                                     <label htmlFor="no">No</label>
                                 </div>
                             </div>
@@ -71,9 +74,9 @@ function CreateExam() {
                             <div className='input_container'>
                                 <label>Status</label>
                                 <div className='radio_button'>
-                                    <input type="radio" id="active" name="status" />
+                                    <input type="radio" id="active" name="status" value={status} onChange={()=>statusChange(1)} />
                                     <label htmlFor="active">Active</label>
-                                    <input type="radio" id="inactive" name="status" />
+                                    <input type="radio" id="inactive" name="status" value={status} onChange={() => statusChange(0)} />
                                     <label htmlFor="inactive">InActive</label>
                                 </div>
                             </div>
@@ -84,13 +87,13 @@ function CreateExam() {
                         <div className='col-sm-4'>
                             <div className='date_container'>
                                 <label>Exam Start Date</label>
-                                <input type="date" className='form-control date_input' />
+                                <input type="date" className='form-control date_input' value={startDate} onChange={startDateChange}/>
                             </div>
                         </div>
                         <div className='col-sm-4'>
                             <div className='date_container'>
                                 <label>Exam End Date</label>
-                                <input type="date" className='form-control date_input' />
+                                <input type="date" className='form-control date_input' value={endDate} onChange={endDateChange} min={startDate} disabled={!startDate} />
                             </div>
                         </div>
                     </div>
@@ -98,11 +101,11 @@ function CreateExam() {
                     <div className='col-sm-4'>
                         <div className='date_container'>
                             <label>Mark Entry Deadline</label>
-                            <input type="date" className='form-control date_input' />
+                            <input type="date" className='form-control date_input' value={deadlineDate} onChange={deadlineDateChange} min={endDate} disabled={!endDate} />
                         </div>
                     </div>
                     <div className='save_button'>
-                        <button className='save_btn'>Save</button>
+                        <button className='save_btn' onClick={saveExam}>Save</button>
                     </div>
                 </div>
             </div>

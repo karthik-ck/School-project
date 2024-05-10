@@ -124,4 +124,21 @@ export default class UserService {
         return result;
     }
 
+    static addExam(class_name, branch_name, term_name, exam_name, status, annual_report_status,
+        exam_start_date, exam_end_date, dealine_for_markEntry){
+            const formData={
+                'class_name': class_name,
+                'branch_name': branch_name,
+                'term_name': term_name,
+                'exam_name': exam_name,
+                'status': status,
+                'annual_report_status': annual_report_status,
+                'exam_start_date': exam_start_date,
+                'exam_end_date': exam_end_date,
+                'dealine_for_markEntry': dealine_for_markEntry
+            }
+        const result = axiosInstance.post(`student/exam/add-exam`,formData)
+        return result;
+    }
+
 }
