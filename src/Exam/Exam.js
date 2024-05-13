@@ -5,7 +5,8 @@ import ExamHook from './ExamHook'
 
 function Exam() {
   const { classData, seClass, branchData, seBranch, termdata, seTerm, addExam,
-    classHandler, branchHandler, termHandler, examData, dateFormat, searchFilter } = ExamHook()
+    classHandler, branchHandler, termHandler, examData, dateFormat, searchFilter ,
+    editExam } = ExamHook()
   return (
     <div>
       <Header></Header>
@@ -83,7 +84,7 @@ function Exam() {
                     <td>{list.dealine_for_markEntry ? dateFormat(list.dealine_for_markEntry) : ''}</td>
                     <td>{list.status === 1 ? 'Active' : 'InActive'}</td>
                     <td className='action_buttons'>
-                      <button>E</button>
+                      <button onClick={()=>editExam(list._id,{list})}>E</button>
                       <button>D</button>
                     </td>
                   </tr>

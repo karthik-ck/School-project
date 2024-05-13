@@ -124,6 +124,10 @@ export default class UserService {
         return result;
     }
 
+    static getExambyId(id){
+        
+    }
+
     static addExam(class_name, branch_name, term_name, exam_name, status, annual_report_status,
         exam_start_date, exam_end_date, dealine_for_markEntry){
             const formData={

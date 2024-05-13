@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import UserService from "../../Services/UserService"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 function CreateExamHook() {
     const navigate=useNavigate()
@@ -18,6 +18,10 @@ function CreateExamHook() {
     const [endDate, setEndDate] = useState('')
     const [deadlineDate,setDeadlineDate]=useState('')
 
+    const location = useLocation()
+    const searchParams = new URLSearchParams(location.search);
+    const id = searchParams.get('id');
+
     useEffect(() => {
         getAcademicYear()
     }, [])
@@ -34,6 +38,12 @@ function CreateExamHook() {
             getTerm()
         }
     }, [selectedClass])
+
+    useEffect(()=>{
+        if(id){
+
+        }
+    },[id])
 
     function getAcademicYear() {
         UserService.getAcademicYearDropdown()

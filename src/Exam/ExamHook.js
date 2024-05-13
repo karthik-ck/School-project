@@ -136,6 +136,15 @@ function ExamHook() {
     navigate("/exam/create-exam")
   }
 
+  const editExam = (id,list) => {
+    const data = JSON.stringify(list)
+    const queryParams = new URLSearchParams({
+      id:id,
+      data:data
+    }).toString()
+    navigate(`/exam/create-exam?${queryParams}`)
+  }
+
   return {
     classData,
     seClass,
@@ -149,7 +158,8 @@ function ExamHook() {
     examData,
     dateFormat,
     searchFilter,
-    addExam
+    addExam,
+    editExam
   }
 }
 
