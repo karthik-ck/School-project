@@ -6,12 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
 import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './Auth/AuthContext';
+import { ThemeProvider } from './Auth/ThemeContext';
+import { LanguageProvider } from './Auth/LanguageContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <ThemeProvider>
+          <LanguageProvider>
+            <App />
+          </LanguageProvider>
+        </ThemeProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

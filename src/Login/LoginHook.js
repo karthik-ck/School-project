@@ -39,6 +39,7 @@ function LoginHook() {
           if (response.status === 200) {
             alert('Login successful', 'success');
             localStorage.setItem("token", response.data.data.access_token)
+            localStorage.setItem("user", JSON.stringify(response.data.data.user))
             setAuthToken(response.data.data.access_token)
             navigate('home')
           } else {

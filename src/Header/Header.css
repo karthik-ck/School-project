@@ -65,3 +65,18 @@
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
+
+.toggle_switch{
+  margin-right:10px;
+  border:none;
+  border-radius:5px;
+}
+
+.language_style{
+  color:#333;
+  background-color: #fff;
+  padding:10px;
+  border:none;
+  border-radius:5px;
+  margin-right:10px;
+}

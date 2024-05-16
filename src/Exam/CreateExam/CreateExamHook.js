@@ -3,7 +3,7 @@ import UserService from "../../Services/UserService"
 import { useLocation, useNavigate } from "react-router-dom"
 
 function CreateExamHook() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const [classdata, setClassdata] = useState([])
     const [branchdata, setBranchdata] = useState([])
     const [termdata, setTermdata] = useState([])
@@ -16,11 +16,24 @@ function CreateExamHook() {
     const [status, setStatus] = useState('')
     const [startDate, setStartDate] = useState('')
     const [endDate, setEndDate] = useState('')
-    const [deadlineDate,setDeadlineDate]=useState('')
+    const [deadlineDate, setDeadlineDate] = useState('')
 
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get('id');
+    const editData = location.state || {}
+
+    useEffect(() => {
+        if (editData) {
+            console.log(editData.list.list)
+            setExamname(editData.list.list.exam_name)
+            setAnnualReport(editData.list.list.annual_report_status)
+            setStatus(editData.list.list.status)
+            setStartDate(editData.list.list.exam_start_date.split("T")[0])
+            setEndDate(editData.list.list.exam_end_date.split("T")[0])
+            setDeadlineDate(editData.list.list.dealine_for_markEntry.split("T")[0])
+        }
+    }, [id, editData])
 
     useEffect(() => {
         getAcademicYear()
@@ -38,12 +51,6 @@ function CreateExamHook() {
             getTerm()
         }
     }, [selectedClass])
-
-    useEffect(()=>{
-        if(id){
-
-        }
-    },[id])
 
     function getAcademicYear() {
         UserService.getAcademicYearDropdown()
@@ -128,7 +135,7 @@ function CreateExamHook() {
     }
 
     const saveExam = () => {
-        if (selectedClass && selectedTerm && examname && annualReport && status && startDate && endDate && deadlineDate){
+        if (selectedClass && selectedTerm && examname && annualReport && status && startDate && endDate && deadlineDate) {
             UserService.addExam(selectedClass, selectedBranch, selectedTerm, examname,
                 status, annualReport, startDate, endDate, deadlineDate)
                 .then((response) => {
@@ -144,7 +151,7 @@ function CreateExamHook() {
                 })
         }
     }
-    
+
 
     return {
         classdata,

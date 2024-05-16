@@ -136,13 +136,8 @@ function ExamHook() {
     navigate("/exam/create-exam")
   }
 
-  const editExam = (id,list) => {
-    const data = JSON.stringify(list)
-    const queryParams = new URLSearchParams({
-      id:id,
-      data:data
-    }).toString()
-    navigate(`/exam/create-exam?${queryParams}`)
+  const editExam = (id, list) => {
+    navigate(`/exam/create-exam?${id}`, { state: { list } })
   }
 
   return {
