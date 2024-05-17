@@ -5,8 +5,11 @@ import ExamHook from './ExamHook'
 
 function Exam() {
   const { classData, seClass, branchData, seBranch, termdata, seTerm, addExam,
-    classHandler, branchHandler, termHandler, examData, dateFormat, searchFilter ,
-    editExam } = ExamHook()
+    classHandler, branchHandler, termHandler, examData, dateFormat, searchFilter,
+    editExam, tabClick ,tab} = ExamHook()
+
+  console.log(classData)
+
   return (
     <div>
       <Header></Header>
@@ -14,8 +17,8 @@ function Exam() {
         <div className='exam_header'>
           <div className='exam_header_top'>
             <ul>
-              <li className='active'>Manage Exam</li>
-              <li>Manage Maximum Mark</li>
+              <li className={tab === 'exam' ? 'active' : ''} onClick={()=>tabClick("exam")}>Manage Exam</li>
+              <li className={tab === 'maximum' ? 'active' : ''}  onClick={() => tabClick("maximum")}>Manage Maximum Mark</li>
             </ul>
             <div className='add_exam'>
               <button onClick={addExam}>Add Exam</button>
@@ -54,7 +57,6 @@ function Exam() {
             </div>
           </div>
         </div>
-
         <div className='exam_table'>
           <div className='row'>
             <div className='table_title'>Exam List</div>
@@ -84,7 +86,7 @@ function Exam() {
                     <td>{list.dealine_for_markEntry ? dateFormat(list.dealine_for_markEntry) : ''}</td>
                     <td>{list.status === 1 ? 'Active' : 'InActive'}</td>
                     <td className='action_buttons'>
-                      <button onClick={()=>editExam(list._id,{list})}>E</button>
+                      <button onClick={() => editExam(list._id, { list })}>E</button>
                       <button>D</button>
                     </td>
                   </tr>

@@ -1,0 +1,37 @@
+.gallery_container {
+  padding: 15px;
+  overflow-x: hidden;
+}
+
+.slider_image {
+  overflow: hidden;
+}
+
+.slider_image2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.slider_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider_text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+
+.slider img{
+    height:auto;
+    width:100%;
+}

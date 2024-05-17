@@ -114,6 +114,11 @@ export default class UserService {
         return result;
     }
 
+    static getSectionDropdown(id) {
+        const result = axiosInstance.get(`student/section/list-section-dropdown/${id}`)
+        return result;
+    }
+
     static getTermDropdown(id) {
         const result = axiosInstance.get(`student/exam/term-class-exam?class_name=${id}`)
         return result;
@@ -124,25 +129,30 @@ export default class UserService {
         return result;
     }
 
-    static getExambyId(id){
-        
+    static getExambyId(id) {
+
     }
 
     static addExam(class_name, branch_name, term_name, exam_name, status, annual_report_status,
-        exam_start_date, exam_end_date, dealine_for_markEntry){
-            const formData={
-                'class_name': class_name,
-                'branch_name': branch_name,
-                'term_name': term_name,
-                'exam_name': exam_name,
-                'status': status,
-                'annual_report_status': annual_report_status,
-                'exam_start_date': exam_start_date,
-                'exam_end_date': exam_end_date,
-                'dealine_for_markEntry': dealine_for_markEntry
-            }
-        const result = axiosInstance.post(`student/exam/add-exam`,formData)
+        exam_start_date, exam_end_date, dealine_for_markEntry) {
+        const formData = {
+            'class_name': class_name,
+            'branch_name': branch_name,
+            'term_name': term_name,
+            'exam_name': exam_name,
+            'status': status,
+            'annual_report_status': annual_report_status,
+            'exam_start_date': exam_start_date,
+            'exam_end_date': exam_end_date,
+            'dealine_for_markEntry': dealine_for_markEntry
+        }
+        const result = axiosInstance.post(`student/exam/add-exam`, formData)
         return result;
     }
 
+    // Reports
+    static getHealthReports(academic_year, student_class, section, branch) {
+        const result = axiosInstance.get(`student/students/studentinfo?academic_year=${academic_year}&student_class=${student_class}&section=${section}&branch=${branch}`)
+        return result
+    }
 }

@@ -1,0 +1,17 @@
+/* styles.css */
+:root {
+  --background-color-light: #ffffff;
+  --text-color-light: #000000;
+  --background-color-dark: #333333;
+  --text-color-dark: #ffffff;
+
+  /* Default theme */
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+}
+
+body {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.5s, color 0.5s !important;
+}

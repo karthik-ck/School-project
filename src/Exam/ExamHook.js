@@ -13,6 +13,7 @@ function ExamHook() {
   const [termdata, setTermdata] = useState([])
   const [seTerm, setSeTerm] = useState('')
   const [isSearch, setIsSearch] = useState(true)
+  const [tab,setTab]=useState("exam")
 
   useEffect(() => {
     getAcademicYear()
@@ -140,6 +141,10 @@ function ExamHook() {
     navigate(`/exam/create-exam?${id}`, { state: { list } })
   }
 
+  const tabClick = (event) => {
+    setTab(event)
+  }
+
   return {
     classData,
     seClass,
@@ -154,7 +159,9 @@ function ExamHook() {
     dateFormat,
     searchFilter,
     addExam,
-    editExam
+    editExam,
+    tabClick,
+    tab
   }
 }
 

@@ -8,6 +8,8 @@ import Parties from './Parties/Parties';
 import AddParties from './Parties/AddParties/AddParties';
 import Exam from './Exam/Exam';
 import CreateExam from './Exam/CreateExam/CreateExam';
+import Gallery from './Gallery/Gallery';
+import Reports from './Reports/Reports';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="parties/add-parties" element={<AddParties />}></Route>
           <Route path="exam" element={<Exam />}></Route>
           <Route path="exam/create-exam" element={<CreateExam />}></Route>
+          <Route path="gallery" element={<Gallery />}></Route>
+          <Route path="reports" element={<Reports />}></Route>
         </Routes>
     </div>
   );

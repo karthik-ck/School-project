@@ -24,8 +24,7 @@ function CreateExamHook() {
     const editData = location.state || {}
 
     useEffect(() => {
-        if (editData) {
-            console.log(editData.list.list)
+        if (editData && id) {
             setExamname(editData.list.list.exam_name)
             setAnnualReport(editData.list.list.annual_report_status)
             setStatus(editData.list.list.status)

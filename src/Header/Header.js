@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import AuthContext from '../Auth/AuthContext'
 import { useTheme } from '../Auth/ThemeContext'
 import { useLanguage } from '../Auth/LanguageContext'
+import '../App.css'
 
 function Header() {
     const { user, logout } = useContext(AuthContext)
@@ -55,6 +56,8 @@ function Header() {
                     <li><Link to="/customer">Settings</Link></li>
                     <li><Link to="/parties">Parties</Link></li>
                     <li><Link to="/exam">Exam</Link></li>
+                    <li><Link to="/gallery">Gallery</Link></li>
+                    <li><Link to="/reports">Reports</Link></li>
                 </ul>
             </div>
         </div>
