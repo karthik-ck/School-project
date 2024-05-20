@@ -6,7 +6,7 @@ import ReportsHook from './ReportsHook'
 function Reports() {
   const { yeardata, year, classData, seClass, yearHandler, classHandler,
     branchData, seBranch, sectiondata, seSection, branchHandler, sectionHandler, report,
-    searchFilter, allCheckboxHandler, selectAll } = ReportsHook()
+    searchFilter, allCheckboxHandler, selectAll, checkboxHandler, generateCard } = ReportsHook()
 
   return (
     <div>
@@ -82,7 +82,8 @@ function Reports() {
                     <td>{list.full_Name}</td>
                     <td>
                       <div className='checkbox_wrap'>
-                        <input type="checkbox" checked={list?.selected}/>
+                        <input type="checkbox" onChange={(event)=>checkboxHandler(event,list)}
+                          checked={(list?.selected) ? (list?.selected) : ''}/>
                         <div className='checkbox_input'></div>
                       </div>
                     </td>
@@ -98,7 +99,7 @@ function Reports() {
           {
             report && report.length &&
             <div className='generate_button'>
-              <button>Generate Report Card</button>
+              <button onClick={generateCard}>Generate Report Card</button>
             </div>
           }
         </div>

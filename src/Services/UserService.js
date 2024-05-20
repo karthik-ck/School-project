@@ -155,4 +155,23 @@ export default class UserService {
         const result = axiosInstance.get(`student/students/studentinfo?academic_year=${academic_year}&student_class=${student_class}&section=${section}&branch=${branch}`)
         return result
     }
+
+    static generateHealthReport(academic_year_id, class_id, section_id, branch_id, term_id, student_id) {
+        const formData = {
+            "academic_year_id": academic_year_id,
+            "class_id": class_id,
+            "section_id": section_id,
+            "branch_id": branch_id,
+            "term_id": term_id,
+            "student_id": student_id
+        }
+        const result = axiosInstance.post(`student/marks-entry/list-health-record-report`, formData , {responseType : 'blob'})
+        return result
+    }
+
+    //drag and drop
+    static getStudentData(academicYearId){
+        const result = axiosInstance.get(`student/dashboard/getStudentCountByClassSection?academicYearId=${academicYearId}`)
+        return result
+    }
 }

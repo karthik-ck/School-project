@@ -10,6 +10,7 @@ import Exam from './Exam/Exam';
 import CreateExam from './Exam/CreateExam/CreateExam';
 import Gallery from './Gallery/Gallery';
 import Reports from './Reports/Reports';
+import Drag from './Drag/Drag';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="exam/create-exam" element={<CreateExam />}></Route>
           <Route path="gallery" element={<Gallery />}></Route>
           <Route path="reports" element={<Reports />}></Route>
+          <Route path="drag-drop" element={<Drag />}></Route>
         </Routes>
     </div>
   );

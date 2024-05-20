@@ -58,6 +58,7 @@ function Header() {
                     <li><Link to="/exam">Exam</Link></li>
                     <li><Link to="/gallery">Gallery</Link></li>
                     <li><Link to="/reports">Reports</Link></li>
+                    <li><Link to="/drag-drop">Drag&Drop</Link></li>
                 </ul>
             </div>
         </div>
