@@ -53,7 +53,6 @@
 
 .generate_button {
     float: right;
-    width: 240px;
     margin-top:-32px;
 }
 
@@ -65,5 +64,6 @@
     font-weight: 300;
     text-transform: uppercase;
     text-align: center;
-    padding:10px;
+    padding:10px 10px;
+    width:250px !important;
 }

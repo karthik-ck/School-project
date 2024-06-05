@@ -165,13 +165,30 @@ export default class UserService {
             "term_id": term_id,
             "student_id": student_id
         }
-        const result = axiosInstance.post(`student/marks-entry/list-health-record-report`, formData , {responseType : 'blob'})
+        const result = axiosInstance.post(`student/marks-entry/list-health-record-report`, formData, { responseType: 'blob' })
         return result
     }
 
     //drag and drop
-    static getStudentData(academicYearId){
+    static getStudentData(academicYearId) {
         const result = axiosInstance.get(`student/dashboard/getStudentCountByClassSection?academicYearId=${academicYearId}`)
+        return result
+    }
+
+    // Mark Attendance
+    static getAttendanceList(filterDate, classes, section, branch, search) {
+        const result = axiosInstance.get(`student/student-attendance/get-list?filterDate=${filterDate}&class=${classes}&section=${section}&branch=${branch}&search=${search}`)
+        return result
+    }
+
+    static markAttandance(attendanceData, attendance_date, attendance_month, attendance_year){
+       const formData={
+           "attendanceData": attendanceData,
+           "attendance_date": attendance_date,
+           "attendance_month": attendance_month,
+           "attendance_year": attendance_year
+       }
+        const result = axiosInstance.post(`student/student-attendance/upload`, formData)
         return result
     }
 }
