@@ -18,6 +18,7 @@ function MarkAttendanceHook() {
   const [studentArray, setStudentArray] = useState([])
   const [attMonth, setAttMonth] = useState('')
   const [attYear, setAttYear] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const getTodayDate = () => {
     const today = new Date();
@@ -56,6 +57,7 @@ function MarkAttendanceHook() {
   }, [seClass, seSection, seBranch, isSearch])
 
   function getAcademicYear() {
+    setLoading(true)
     UserService.getAcademicYearDropdown()
       .then((response) => {
         setYeardata(response.data.data);
@@ -117,6 +119,7 @@ function MarkAttendanceHook() {
       .then((response) => {
         if (response.data.data.length > 0) {
           setReport(response.data.data);
+          setLoading(false)
         } else {
           setReport([]);
         }
@@ -159,6 +162,8 @@ function MarkAttendanceHook() {
   function searchFilter() {
     setIsSearch(true);
     setStudentArray([])
+    setAllPresent(false)
+    setAllHoliday(false)
   }
 
   const allPresentHandler = (event) => {
@@ -265,7 +270,8 @@ function MarkAttendanceHook() {
     presentHandler,
     allPresent,
     allHoliday,
-    saveChanges
+    saveChanges,
+    loading
   }
 }
 

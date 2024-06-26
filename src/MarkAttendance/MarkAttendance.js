@@ -2,13 +2,14 @@ import React from 'react'
 import Header from '../Header/Header'
 import './MarkAttendance.css'
 import MarkAttendanceHook from './MarkAttendanceHook'
+import { FadeLoader } from 'react-spinners'
 
 function MarkAttendance() {
   const { yeardata, year, classData, seClass, yearHandler, classHandler,
     branchData, seBranch, sectiondata, seSection, branchHandler, sectionHandler,
     searchFilter, selectAll, seDate, dateHandler, report,
-    allPresentHandler, allHolidayHandler, presentHandler, allPresent, allHoliday, 
-    saveChanges } = MarkAttendanceHook()
+    allPresentHandler, allHolidayHandler, presentHandler, allPresent, allHoliday,
+    saveChanges, loading } = MarkAttendanceHook()
 
   return (
     <div>
@@ -84,55 +85,67 @@ function MarkAttendance() {
                     <th></th>
                     <th>
                       <label className='radio all_holiday'>
-                        <input type='radio' name='attendance' value="HOLIDAY" checked={allHoliday}  onChange={allHolidayHandler} />
+                        <input type='radio' name='attendance' value="HOLIDAY" checked={allHoliday} onChange={allHolidayHandler} />
                         HOLIDAY FOR ALL
                       </label>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {report.map((list, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>{list.admission_No}</td>
-                      <td>{list.full_Name}</td>
-                      <td>
-                        <label className='radio all_present'>
-                          <input type='radio' name={`attendance${index}`} value="PRESENT"
-                            checked={list?.attendance === 'PRESENT'} onChange={(e) => presentHandler(e, list)} />
-                          Present
-                        </label>
-                      </td>
-                      <td>
-                        <label className='radio first_half'>
-                          <input type='radio' name={`attendance${index}`} value="1ST_HALF_LEAVE"
-                            checked={list?.attendance === '1ST_HALF_LEAVE'} onChange={(e) => presentHandler(e, list)} />
-                          1st Half Leave
-                        </label>
-                      </td>
-                      <td>
-                        <label className='radio second_half'>
-                          <input type='radio' name={`attendance${index}`} value="2ND_HALF_LEAVE"
-                            checked={list?.attendance === '2ND_HALF_LEAVE'} onChange={(e) => presentHandler(e, list)} />
-                          2nd Half Leave
-                        </label>
-                      </td>
-                      <td>
-                        <label className='radio absent'>
-                          <input type='radio' name={`attendance${index}`} value="ABSENT"
-                            checked={list?.attendance === 'ABSENT'} onChange={(e) => presentHandler(e, list)} />
-                          Absent
-                        </label>
-                      </td>
-                      <td>
-                        <label className='radio all_holiday'>
-                          <input type='radio' name={`attendance${index}`} value="HOLIDAY"
-                            checked={list?.attendance === 'HOLIDAY'} onChange={(e) => presentHandler(e, list)} />
-                          Holiday
-                        </label>
+                  {loading ? (
+                    <tr>
+                      <td colSpan="8">
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
+                          <FadeLoader color={"#123abc"} loading={loading} size={200} />
+                        </div>
                       </td>
                     </tr>
-                  ))}
+                  ) : (
+                    <>
+                      {report.map((list, index) => (
+                        <tr key={index}>
+                          <td>{index + 1}</td>
+                          <td>{list.admission_No}</td>
+                          <td>{list.full_Name}</td>
+                          <td>
+                            <label className='radio all_present'>
+                              <input type='radio' name={`attendance${index}`} value="PRESENT"
+                                checked={list?.attendance === 'PRESENT'} onChange={(e) => presentHandler(e, list)} />
+                              Present
+                            </label>
+                          </td>
+                          <td>
+                            <label className='radio first_half'>
+                              <input type='radio' name={`attendance${index}`} value="1ST_HALF_LEAVE"
+                                checked={list?.attendance === '1ST_HALF_LEAVE'} onChange={(e) => presentHandler(e, list)} />
+                              1st Half Leave
+                            </label>
+                          </td>
+                          <td>
+                            <label className='radio second_half'>
+                              <input type='radio' name={`attendance${index}`} value="2ND_HALF_LEAVE"
+                                checked={list?.attendance === '2ND_HALF_LEAVE'} onChange={(e) => presentHandler(e, list)} />
+                              2nd Half Leave
+                            </label>
+                          </td>
+                          <td>
+                            <label className='radio absent'>
+                              <input type='radio' name={`attendance${index}`} value="ABSENT"
+                                checked={list?.attendance === 'ABSENT'} onChange={(e) => presentHandler(e, list)} />
+                              Absent
+                            </label>
+                          </td>
+                          <td>
+                            <label className='radio all_holiday'>
+                              <input type='radio' name={`attendance${index}`} value="HOLIDAY"
+                                checked={list?.attendance === 'HOLIDAY'} onChange={(e) => presentHandler(e, list)} />
+                              Holiday
+                            </label>
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  )}
                 </tbody>
               </table>
 
